@@ -32,8 +32,8 @@ def question():
 
 
 def even():
-    a = input('you\'re even! wanna try again? (y/n)')
-    if a == 'y':
+    a = [input('you\'re even! wanna try again? (y/n)').lower()]
+    if a[0] == 'y':
         player.clear()
         computer.clear()
         game()
@@ -42,8 +42,8 @@ def even():
 
 
 def computer_wins():
-    b = input('I\'m sorry you lost! wanna try again? (y/n)')
-    if b == 'y':
+    b = [input('I\'m sorry you lost! wanna try again? (y/n)').lower()]
+    if b[0] == 'y':
         player.clear()
         computer.clear()
         game()
@@ -52,8 +52,8 @@ def computer_wins():
 
 
 def player_wins():
-    c = input('congratulations! you won! wanna try again? (y/n)')
-    if c == 'y':
+    c = [input('congratulations! you won! wanna try again? (y/n)').lower()]
+    if c[0] == 'y':
         player.clear()
         computer.clear()
         game()
