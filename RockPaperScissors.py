@@ -7,7 +7,6 @@ computer = []
 
 
 def question():
-
     # Solves the problem of user entering any other input instead of given choices
     while True:
 
@@ -31,32 +30,32 @@ def question():
     computer.append(p[0])
 
 
+def play_again():
+    player.clear()
+    computer.clear()
+    game()
+
+
 def even():
-    a = [input('you\'re even! wanna try again? (y/n)').lower()]
+    a = [input('you\'re even! wanna try again? (y/n): ').lower()]
     if a[0] == 'y':
-        player.clear()
-        computer.clear()
-        game()
+        play_again()
     else:
         exit()
 
 
 def computer_wins():
-    b = [input('I\'m sorry you lost! wanna try again? (y/n)').lower()]
+    b = [input('I\'m sorry you lost! wanna try again? (y/n): ').lower()]
     if b[0] == 'y':
-        player.clear()
-        computer.clear()
-        game()
+        play_again()
     else:
         exit()
 
 
 def player_wins():
-    c = [input('congratulations! you won! wanna try again? (y/n)').lower()]
+    c = [input('congratulations! you won! wanna try again? (y/n): ').lower()]
     if c[0] == 'y':
-        player.clear()
-        computer.clear()
-        game()
+        play_again()
     else:
         exit()
 
@@ -66,15 +65,10 @@ def clear():
         os.system('CLS')
     if os.name == 'posix':
         os.system('clear')
-
-
-def game():
-    clear()
-    question()
-
-    #shows what the computer Chose
-    print("Computer Chose {}!".format(computer[0]))
-
+       
+    
+    
+def endgame():
     if computer[0] == player[0]:
         even()
     elif computer[0] == 'r' and player[0] == 's':
@@ -96,6 +90,16 @@ def game():
         player_wins()
         clear()
 
+
+def game():
+    clear()
+    question()
+
+    # shows what the computer Chose
+    print("Computer Chose {}!".format(computer[0]))
+    
+    endgame()
+    
 
 if __name__ == "__main__":
     game()
